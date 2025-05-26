@@ -1,0 +1,8 @@
+[build]
+start = "node index.js"
+
+[deploy]
+startCommand = "node index.js"
+
+[volumes]
+auth_info = "/app/auth_info"
