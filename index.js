@@ -1,3 +1,6 @@
+// Load environment variables
+require('dotenv').config();
+
 // WhatsApp & Discord Bot
 const {
   default: makeWASocket,
@@ -260,5 +263,9 @@ discordClient.on('messageCreate', async (msg) => {
 
 (async () => {
   await connectToWhatsApp();
+  if (!DISCORD_TOKEN) {
+    console.error('❌ DISCORD_TOKEN tidak ditemukan di .env!');
+    return;
+  }
   discordClient.login(DISCORD_TOKEN);
 })();
